@@ -1,0 +1,91 @@
+<div class="card">
+  <!-- begin::Header -->
+  <div class="card-header border-0 pt-5">
+    <h3 class="card-title align-items-start flex-column">
+      <span class="card-label fw-bolder fs-3 mb-1">INSIGHTS SYSTEM</span>
+
+    </h3>
+    <div class="card-toolbar">
+      <!-- begin::Menu -->
+      <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
+        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+        <mat-icon>search</mat-icon>
+      </button>
+      <app-dropdown-menu11></app-dropdown-menu11>
+      <!-- end::Menu -->
+    </div>
+  </div>
+  <!-- end::Header -->
+
+  <!-- begin::Body -->
+  <div class="card-body ">
+    <!-- begin::Chart -->
+    <div class="row g-5 g-xl-8">
+      <div class="row">
+        <div class="col-6 ">
+          <label class="form-label">{{'LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME'|translate}}</label>
+          <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
+            <mat-label>{{'LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME'|translate}}</mat-label>
+            <mat-chip-list #chipList2 aria-label="">
+              <mat-chip *ngFor="let cat of category" (removed)="removec(cat)">
+                {{cat}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input
+                placeholder="{{'GENERAL.SELECT'|translate}} {{'LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME'|translate}}..."
+                #catInput [formControl]="mainCategoryCtrl" [matAutocomplete]="auto4" [matChipInputFor]="chipList2"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addc($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto4="matAutocomplete" (optionSelected)="selectedC($event)">
+              <mat-option *ngFor="let cat of filteredMainCat | async" [value]="cat">
+                {{cat}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+        </div>
+        <div class="col-6">
+          <label class="form-label">{{'LOOKUPS.SUB_CATEGORY.SUB_CATEGORY_NAME'|translate}}</label>
+
+          <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
+            <mat-label>{{'LOOKUPS.SUB_CATEGORY.SUB_CATEGORY_NAME'|translate}}</mat-label>
+            <mat-chip-list #chipList aria-label=" selection">
+              <mat-chip *ngFor="let cat of subCategory" (removed)="removeSub(cat)">
+                {{cat}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input
+                placeholder="{{'GENERAL.SELECT'|translate}} {{'LOOKUPS.SUB_CATEGORY.SUB_CATEGORY_NAME'|translate}}.."
+                #subInput [formControl]="subCategoryCtrl" [matAutocomplete]="auto2" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes">
+            </mat-chip-list>
+            <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="selectedSub($event)">
+              <mat-option *ngFor="let cat of filteredSubCat | async" [value]="cat">
+                {{cat}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+        </div>
+      </div>
+
+      <div class="row pt-3">
+        <div #chartRef id="chart" class=" border border-1">
+
+
+          <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+            [title]="chartOptions.title" [yaxis]="chartOptions.yaxis" [dataLabels]="chartOptions.dataLabels"
+            [stroke]="chartOptions.stroke" [legend]="chartOptions.legend" [fill]="chartOptions.fill"
+            [states]="chartOptions.states" [tooltip]="chartOptions.tooltip" [colors]="chartOptions.colors"
+            [markers]="chartOptions.markers" [plotOptions]="chartOptions.plotOptions"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <!-- end::Chart -->
+  </div>
+  <!-- end::Body -->
+</div>

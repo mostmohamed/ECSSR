@@ -1,0 +1,182 @@
+<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"
+  data-kt-redirect="../../demo1/dist/apps/ecommerce/catalog/products.html">
+
+  <!--begin::Main column-->
+  <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-5">
+    <!--begin:::Tabs-->
+    <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
+      <!--begin:::Tab item-->
+
+      <!--end:::Tab item-->
+      <!--begin:::Tab item-->
+
+      <!--end:::Tab item-->
+    </ul>
+    <!--end:::Tabs-->
+    <!--begin::Tab content-->
+    <div class="tab-content">
+      <!--begin::Tab pane-->
+      <div class="tab-pane fade show active" id="kt_ecommerce_add_product_general" role="tab-panel">
+        <div class="d-flex flex-column gap-7 gap-lg-10">
+          <!--begin::General options-->
+          <div class="card card-flush py-4">
+            <!--begin::Card header-->
+            <div class="card-header">
+              <div class="card-title">
+                <h2>{{'INISIGHTS.CREATE_NEW_COLLECTION'|translate}}</h2>
+              </div>
+            </div>
+            <!--end::Card header-->
+            <!--begin::Card body-->
+            <div class="card-body pt-0">
+              <!--begin::Input group-->
+              <div class="mb-10 fv-row">
+                <!--begin::Label-->
+                <label class="required form-label">{{'INISIGHTS.COLLECTION_NAME'|translate}}</label>
+                <!--end::Label-->
+                <!--begin::Input-->
+                <input type="text" name="product_name" class="form-control mb-2" placeholder="Collection name"
+                  value="" />
+                <!--end::Input-->
+                <!--begin::Description-->
+                <!-- <div class="text-muted fs-7">A Collection name is required and recommended to be unique.</div> -->
+                <!--end::Description-->
+              </div>
+              <!--end::Input group-->
+              <!--begin::Input group-->
+              <div>
+                <!--begin::Label-->
+                <label class="form-label">{{'GENERAL.Description'|translate}}</label>
+                <!--end::Label-->
+                <textarea class="form-control mb-2"></textarea>
+              </div>
+              <div class="row">
+                <label class="form-label">{{'GENERAL.RESEARCHER'|translate}}</label>
+                <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
+                  <mat-label>{{'GENERAL.RESEARCHER'|translate}}</mat-label>
+                  <mat-chip-list #chipList aria-label=" selection">
+                    <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                      {{fruit}}
+                      <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+                    <input placeholder="{{'GENERAL.SELECT'|translate}} {{'GENERAL.RESEARCHER'|translate}}.." #fruitInput
+                      [formControl]="fruitCtrl" [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
+                  </mat-chip-list>
+                  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                    <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                      {{fruit}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+
+              </div>
+              <div class="row">
+                <label class="form-label">{{'GENERAL.MEDIA_MONITOR'|translate}}</label>
+                <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
+                  <mat-label>{{'GENERAL.MEDIA_MONITOR'|translate}}</mat-label>
+                  <mat-chip-list #chipList aria-label=" selection">
+                    <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                      {{fruit}}
+                      <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+                    <input placeholder="{{'GENERAL.SELECT'|translate}} {{'GENERAL.MEDIA_MONITOR'|translate}}.."
+                      #fruitInput [formControl]="fruitCtrl" [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
+                  </mat-chip-list>
+                  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                    <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                      {{fruit}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+
+              </div>
+              <div class="row ">
+                <label class="form-label">{{'LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME'|translate}}</label>
+                <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
+                  <mat-label>{{'LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME'|translate}}</mat-label>
+                  <mat-chip-list #chipList2 aria-label="Fruit selection">
+                    <mat-chip *ngFor="let cat of category" (removed)="removec(cat)">
+                      {{cat}}
+                      <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+                    <input
+                      placeholder="{{'GENERAL.SELECT'|translate}} {{'LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME'|translate}}..."
+                      #catInput [formControl]="categoryCtrl" [matAutocomplete]="auto4" [matChipInputFor]="chipList2"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addc($event)">
+                  </mat-chip-list>
+                  <mat-autocomplete #auto4="matAutocomplete" (optionSelected)="selectedC($event)">
+                    <mat-option *ngFor="let cat of filteredCategory | async" [value]="cat">
+                      {{cat}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+
+              </div>
+              <div class="row pb-1">
+                <label class="form-label">{{'LOOKUPS.SYNONYMS.SYNONYMS_NAME'|translate}}</label>
+                <div class="text-muted fs-7">Egypt, السعودية,الإمارات,United Arab Emirates</div>
+              </div>
+              <div class="row">
+                <label class="form-label">{{'LOOKUPS.SUB_CATEGORY.SUB_CATEGORY_NAME'|translate}}</label>
+                <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
+                  <mat-label>{{'LOOKUPS.SUB_CATEGORY.SUB_CATEGORY_NAME'|translate}}</mat-label>
+                  <mat-chip-list #chipList2 aria-label=" selection">
+                    <mat-chip *ngFor="let cat of category" (removed)="removec(cat)">
+                      {{cat}}
+                      <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+                    <input
+                      placeholder="{{'GENERAL.SELECT'|translate}} {{'LOOKUPS.SUB_CATEGORY.SUB_CATEGORY_NAME'|translate}}..."
+                      #catInput2 [formControl]="categoryCtrl" [matAutocomplete]="auto1" [matChipInputFor]="chipList2"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addc($event)">
+                  </mat-chip-list>
+                  <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="selectedC($event)">
+                    <mat-option *ngFor="let cat of filteredCategory | async" [value]="cat">
+                      {{cat}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+
+              </div>
+
+              <div class="row pb-1">
+                <label class="form-label">{{'LOOKUPS.SYNONYMS.SYNONYMS_NAME'|translate}}</label>
+                <div class="text-muted fs-7">مصر, الإمارات العربيه المتحدة,السعودية</div>
+              </div>
+              <!--end::Input group-->
+            </div>
+            <!--end::Card header-->
+          </div>
+          <!--end::General options-->
+
+        </div>
+      </div>
+
+    </div>
+    <!--end::Tab content-->
+    <div class="d-flex justify-content-end">
+      <!--begin::Button-->
+      <a href="../../demo1/dist/apps/ecommerce/catalog/products.html" id="kt_ecommerce_add_product_cancel"
+        class="btn btn-light me-5">{{'GENERAL.CANCEL'|translate}}</a>
+      <!--end::Button-->
+      <!--begin::Button-->
+      <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
+        <span class="indicator-label">{{'INISIGHTS.CREATE_COLLECTION'|translate}}</span>
+        <span class="indicator-progress">Please wait...
+          <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+      </button>
+      <!--end::Button-->
+    </div>
+  </div>
+  <!--end::Main column-->
+</form>

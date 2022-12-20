@@ -1,0 +1,204 @@
+<div class="card mb-5 mb-xl-10">
+  <div class="card-header border-0 pt-5">
+    <h3 class="card-title align-items-start flex-column"><span class="card-label fw-bolder fs-3 mb-1"
+        translate="MENU.INSIGHT_REPORT_TEXT">
+      </span><span class="text-muted mt-1 fw-bold fs-7"></span></h3>
+    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a user"
+      class="card-toolbar">
+
+
+      <!-- begin::Menu -->
+      <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
+        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+        <mat-icon>search</mat-icon>
+      </button>
+      <app-dropdown-menu11></app-dropdown-menu11>
+    </div>
+  </div>
+  <div class="card-body py-3">
+
+    <div class="table-responsive">
+      <div class="table-responsive rounded border border-1">
+        <table class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3 pb-0 mb-0 table-row-gray-300">
+          <thead class="fw-bolder text-muted bg-light">
+            <tr class="fw-bolder text-muted">
+
+              <th class="col-4 min-w-150px text-center">
+                <div>{{'REPORTS.MAIN_CATEGORY'|translate}}</div>
+                <div>
+                  (الكلمة المفتاحية الرئيسية)
+                </div>
+              </th>
+              <th class="col-5 min-w-200px text-center">
+                <div>{{'REPORTS.SUB_CATEGORY'|translate}}</div>
+                <div>الكلمة المفتاحية الفرعية)</div>
+              </th>
+              <th class="col-3 w-120px text-center">(الكلمة المفتاحية الرئيسية)
+              </th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-light-dark">
+              <td class=" text-center"><a class="text-dark fw-bolder text-hover-primary fs-6">
+                  الإمارات</a></td>
+
+              <td style="padding: 0;">
+                <table style="width: 100%;" class="text-center">
+                  <tr>
+                    <td class="fw-bolder">
+                      <div>
+                        دبي</div>
+                      <label>(3)</label>
+                    </td>
+                    <td>
+                      <mat-slider value="2" max="5">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bolder">
+                      <div>
+                        الشيخ محمد بن زايد – رئيس الدولة – محمد بن زايد
+                      </div>
+                      <label>(6)</label>
+
+                    </td>
+                    <td>
+                      <mat-slider value="5" max="5">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bolder">
+                      <div>
+                        الإماراتي
+                      </div>
+                      <label>(6)</label>
+
+                    </td>
+                    <td>
+                      <mat-slider value="5" max="5">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td style="padding: 0;">
+                <table style="width: 100%;" class="text-center">
+                  <tr>
+
+                    <td class="fw-bolder">6</td>
+
+                    <td>
+                      <mat-slider value="5" max="5">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bolder">3</td>
+                    <td>
+                      <mat-slider max="5" min="2" step="1" value="3">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bolder">5</td>
+                    <td>
+                      <mat-slider max="5" min="2" step="1" value="5">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr class="bg-light-warning">
+              <td class="bg-light-warning text-center"><a class="text-dark fw-bolder text-hover-primary fs-6">
+                  السعودية</a></td>
+
+              <td style="padding: 0;">
+                <table style="width: 100%;" class="text-center">
+                  <tr>
+                    <td class="fw-bolder">
+                      <div>
+                        السعودي</div>
+                      <label>(78)</label>
+                    </td>
+                    <td>
+                      <mat-slider value="2" max="5">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bolder">
+                      <div>
+                        محمد بن سلمان – ولي العهد </div>
+                      <label>(5)</label>
+
+                    </td>
+                    <td>
+                      <mat-slider value="5" max="5">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bolder">
+                      <div>
+                        مكة </div>
+                      <label>(0)</label>
+
+                    </td>
+                    <td>
+                      <mat-slider value="5" max="5">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td style="padding: 0;">
+                <table style="width: 100%;" class="text-center">
+                  <tr>
+
+                    <td class="fw-bolder">6</td>
+
+                    <td>
+                      <mat-slider value="5" max="5">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bolder">3</td>
+                    <td>
+                      <mat-slider max="5" min="2" step="1" value="3">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bolder">3</td>
+                    <td>
+                      <mat-slider max="5" min="2" step="1" value="3">
+                        <input matSliderThumb>
+                      </mat-slider>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

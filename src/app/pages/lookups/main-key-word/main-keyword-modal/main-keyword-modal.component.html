@@ -1,0 +1,25 @@
+<h1 mat-dialog-title class="text-center mb-5">
+  {{data?.id===null?('LOOKUPS.MAIN_KEYWORDS.EDIT_MAIN_KEYWORDS' | translate):'LOOKUPS.MAIN_KEYWORDS.NEW_MAIN_KEYWORDS' |translate}}
+</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label translate="LOOKUPS.MAIN_KEYWORDS.MAIN_KEYWORDSY_NAME"> </mat-label>
+        <input matInput [(ngModel)]="data.name">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label translate="GENERAL.NOTES"> </mat-label>
+        <input matInput [(ngModel)]="data.name">
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" translate="GENERAL.CANCEL"></button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.name" cdkFocusInitial translate="GENERAL.SAVE">
+  </button>
+</div>

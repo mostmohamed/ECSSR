@@ -1,0 +1,70 @@
+<div class="row g-5 g-xl-8">
+  <div class="col-xl-12">
+    <div class="card card-xl-stretch mb-xl-12">
+      <!-- begin::Header -->
+      <div class="card-header border-0 pt-5 justify-content-cednter">
+        <h3 class="card-title align-items-start flex-column">
+          <span class="card-label fw-bolder fs-3 mb-1" translate> WORKFLOW.CREATE_WF.LIST</span>
+
+          <span class="text-muted fw-bold fs-7"> </span>
+        </h3>
+      </div>
+      <!-- end::Header -->
+
+      <!-- begin::Body -->
+      <div class="card-body py-3">
+
+        <div class="row">
+          <table class="table align-middle gs-0 gy-4" id="kt_table_users">
+            <!--begin::Table head-->
+            <thead>
+              <!--begin::Table row-->
+              <tr class="ffw-bolder text-muted bg-light text-uppercase gs-0">
+                <th class="min-w-125px px-3" translate>WORKFLOW.CREATE_WF.WF_ID</th>
+                <th class="min-w-125px" translate>WORKFLOW.CREATE_WF.NAME</th>
+                <th class="min-w-125px" translate>WORKFLOW.CREATE_WF.STATUS</th>
+                <th class="min-w-125px" translate>WORKFLOW.CREATE_WF.CR_DATE</th>
+                <th class="text-end min-w-100px px-3" translate>WORKFLOW.CREATE_WF.ACTIONS</th>
+              </tr>
+              <!--end::Table row-->
+            </thead>
+            <!--end::Table head-->
+            <!--begin::Table body-->
+            <tbody class="text-gray-600 fw-bold">
+
+              <!--begin::Table row-->
+              <tr>
+
+                <!--begin::Role=-->
+                <td class="px-3">2</td>
+                <td>wf-1</td>
+
+                <!-- <td>
+                    <div class="badge badge-light-info fw-bolder" *ngIf="!wf.isContributor">User</div>
+                    <div class="badge badge-light-success fw-bolder" *ngIf="user.isContributor">Contibuotr</div>
+                  </td> -->
+                <td>
+                  <div class="badge badge-light-success fw-bolder" translate>
+                    USER_MGMT.ROLES.PANEL.ENABLED</div>
+                </td>
+
+                <!--begin::Joined-->
+                <td>{{'2022-01-01' | date}}</td>
+                <!--begin::Joined-->
+                <!--begin::Action=-->
+                <td class="text-end px-3"><button (click)="viewWorkflow(1)"
+                    class="btn btn-bg-light btn-color-muted btn-active-color-primary btn-sm px-4 me-2" translate>
+                    USER_MGMT.ROLES.PANEL.VIEW
+                  </button>
+                </td>
+                <!--end::Action=-->
+              </tr>
+              <!--end::Table row-->
+            </tbody>
+            <!--end::Table body-->
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

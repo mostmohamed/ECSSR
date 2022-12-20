@@ -1,0 +1,124 @@
+<div class="card mb-5 mb-xl-10">
+  <div class="card-header border-0 pt-5">
+    <h3 class="card-title align-items-start flex-column"><span class="card-label fw-bolder fs-3 mb-1"
+        translate="LOOKUPS.MAIN_KEYWORDS.ROOT">
+      </span><span class="text-muted mt-1 fw-bold fs-7"></span></h3>
+    <div data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a user"
+      class="card-toolbar">
+      <button class="btn btn-sm btn-light-twitter cursor-pointer" (click)="openDialog(1)">
+        <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr075.svg'" class="svg-icon svg-icon-3"></span>
+        {{'LOOKUPS.MAIN_KEYWORDS.NEW_MAIN_KEYWORDS'|translate}}
+      </button>
+
+      <!-- begin::Menu -->
+      <button type="button" class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
+        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+        <mat-icon>search</mat-icon>
+      </button>
+      <app-dropdown-menu1></app-dropdown-menu1>
+    </div>
+  </div>
+  <div class="card-body py-3">
+    <div class="table-responsive">
+      <table class="table table-row-bordered table-row-gray-300 align-middle gs-0 gy-4">
+        <thead>
+          <tr class="fw-bolder text-muted">
+            <th class="w-25px">
+              <div class="form-check form-check-sm form-check-custom form-check-solid"><input type="checkbox" value="1"
+                  data-kt-check="true" data-kt-check-target=".widget-9-check" class="form-check-input"></div>
+            </th>
+            <th class="min-w-150px" translate="LOOKUPS.MAIN_KEYWORDS.MAIN_KEYWORDSY_NAME"></th>
+            <th class="min-w-120px" translate="GENERAL.NOTES"></th>
+            <th class="min-w-100px text-end" translate="GENERAL.ACTIONS"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="form-check form-check-sm form-check-custom form-check-solid"><input type="checkbox" value="1"
+                  class="form-check-input widget-9-check"></div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-start flex-column"><a
+                    class="text-dark fw-bolder text-hover-primary fs-6"> EGY </a> </div>
+              </div>
+            </td>
+            <td class="">
+              Notes .....
+            </td>
+            <td>
+              <div class="d-flex justify-content-end flex-shrink-0">
+                <button (click)="openDialog()" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                  <span class="svg-icon svg-icon-3" [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'">
+
+
+                  </span>
+                </button><a class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+                  <span class="svg-icon svg-icon-3"
+                    [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"></span>
+
+                  <!----></a></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-check form-check-sm form-check-custom form-check-solid"><input type="checkbox" value="1"
+                  class="form-check-input widget-9-check"></div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-start flex-column"><a
+                    class="text-dark fw-bolder text-hover-primary fs-6"> الإمارات العربيه المتحدة </a> </div>
+              </div>
+            </td>
+            <td class="">
+              Notes .....
+            </td>
+            <td>
+              <div class="d-flex justify-content-end flex-shrink-0">
+                <button (click)="openDialog()" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                  <span class="svg-icon svg-icon-3" [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'">
+
+
+                  </span>
+                </button><a class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+                  <span class="svg-icon svg-icon-3"
+                    [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"></span>
+
+                  <!----></a></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-check form-check-sm form-check-custom form-check-solid"><input type="checkbox" value="1"
+                  class="form-check-input widget-9-check"></div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-start flex-column"><a
+                    class="text-dark fw-bolder text-hover-primary fs-6"> Dubai </a> </div>
+              </div>
+            </td>
+            <td class="">
+              Notes .....
+            </td>
+            <td>
+              <div class="d-flex justify-content-end flex-shrink-0">
+                <button (click)="openDialog()" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                  <span class="svg-icon svg-icon-3" [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'">
+
+
+                  </span>
+                </button><a class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+                  <span class="svg-icon svg-icon-3"
+                    [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"></span>
+
+                  <!----></a></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

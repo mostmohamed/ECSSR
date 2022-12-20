@@ -1,0 +1,47 @@
+<!-- <div class="d-flex flex-column flex-center flex-column-fluid">
+  <div class="d-flex flex-column flex-center text-center p-10">
+    <div class="card card-flush  w-lg-650px py-5">
+      <div class="card-body py-15 py-lg-20">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="d-flex flex-column flex-lg-row flex-column-fluid"
+  style="background-image: url('./assets/media/auth/bg4.jpg');">
+
+  <!--begin::Body-->
+  <div class="d-flex flex-center w-lg-50 pt-15 pt-lg-0 px-10 ">
+    <!--begin::Aside-->
+    <div class="d-flex flex-center flex-lg-start flex-column">
+      <!--begin::Logo-->
+      <a href="#" class="mb-7">
+        <img alt="Logo" src="./assets/media/logos/ecssr-logo.png">
+      </a>
+      <!--end::Logo-->
+      <!--begin::Title-->
+      <h2 class="text-white fw-normal m-0"></h2>
+      <!--end::Title-->
+    </div>
+    <!--begin::Aside-->
+  </div>
+  <div class="d-flex flex-center w-lg-50 p-10">
+    <!--begin::Form-->
+    <div class="card rounded-3 w-md-550px ">
+      <!--begin::Wrapper-->
+      <div class="<?php echo $params['wrapperClass']?> p-10">
+        <router-outlet></router-outlet>
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!--end::Form-->
+
+
+  </div>
+  <!--end::Body-->
+
+  <!--begin::Aside-->
+
+  <!--end::Aside-->
+</div>

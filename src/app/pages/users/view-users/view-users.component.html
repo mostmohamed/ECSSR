@@ -1,0 +1,96 @@
+<div class="card mb-5 mb-xl-10">
+  <div class="card-header border-0 pt-5">
+    <h3 class="card-title align-items-start flex-column"><span class="card-label fw-bolder fs-3 mb-1"
+        translate="">USER_MGMT.ROLES.PANEL.USERS_LIST</span><span class="text-muted fw-bold fs-7"> </span></h3>
+
+  </div>
+  <div class="card-body py-3">
+    <div class="table-responsive">
+      <mat-form-field appearance="standard">
+        <mat-label translate> USER_MGMT.ROLES.PANEL.FILTER </mat-label>
+        <input matInput (keyup)="applyFilter($event)"
+          placeholder="{{'USER_MGMT.ROLES.PANEL.FILTER_PLACE_HLDR' | translate }}" #input>
+      </mat-form-field>
+
+      <table mat-table class="  table align-middle gs-0 gy-4" [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="fullName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            {{ 'USER_MGMT.ROLES.PANEL.FULL_NAME' | translate }} </th>
+          <td mat-cell *matCellDef="let element">
+            {{element.fullName}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th class="ps-4" mat-header-cell *matHeaderCellDef>
+            {{ 'USER_MGMT.ROLES.PANEL.USER' | translate }} </th>
+          <td class="ps-4" mat-cell *matCellDef="let element">
+            <div class="d-flex flex-column">
+              <div class="text-gray-800 text-hover-primary mb-1">{{element.fullName}}</div>
+              <span>{{element.email}}</span>
+            </div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="jobTitle">
+          <th mat-header-cell *matHeaderCellDef>
+            {{'USER_MGMT.ROLES.PANEL.JOB_TITLE' | translate }}
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.jobTitle}} </td>
+        </ng-container>
+        <ng-container matColumnDef="organization">
+          <th mat-header-cell *matHeaderCellDef>
+            {{'USER_MGMT.ROLES.PANEL.ORGANIZATION' | translate}}
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.organization}} </td>
+        </ng-container>
+        <ng-container matColumnDef="specialization">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ 'USER_MGMT.ROLES.PANEL.SPECIALIZATION' | translate }}
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.specialization}} </td>
+        </ng-container>
+        <ng-container matColumnDef="isContributor">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            {{ 'USER_MGMT.ROLES.PANEL.USER_TYPE' | translate }}
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="badge badge-light-info fw-bolder" *ngIf="!element.isContributor" translate>
+              USER_MGMT.ROLES.PANEL.USER_ACC</div>
+            <div class="badge badge-light-success fw-bolder" *ngIf="element.isContributor" translate>
+              USER_MGMT.ROLES.PANEL.CONTRIBUTOR_ACC</div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="isDisabled">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            {{'USER_MGMT.ROLES.PANEL.ACC_STATUS' | translate}} </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="badge badge-light-success fw-bolder" *ngIf="!element.isDisabled" translate>
+              USER_MGMT.ROLES.PANEL.ENABLED</div>
+            <div class="badge badge-light-danger fw-bolder" *ngIf="element.isDisabled" translate>
+              USER_MGMT.ROLES.PANEL.DISABLED</div>
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Actions">
+          <th mat-header-cell *matHeaderCellDef translate>
+            USER_MGMT.ROLES.PANEL.ACTIONS </th>
+          <td mat-cell *matCellDef="let element"> <button (click)="viewUser(element.userId)"
+              class="btn btn-bg-light btn-color-muted btn-active-color-primary btn-sm px-4 me-2" translate>
+              USER_MGMT.ROLES.PANEL.VIEW
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"
+          class="ffw-bolder text-muted bg-light text-uppercase gs-0"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;let rIndex=index" (click)="selection.toggle(row)"
+          [ngClass]="{hovered: row.hovered, highlighted: selection.isSelected(row)}" (mouseover)="row.hovered = true"
+          (mouseout)="row.hovered = false"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4" translate> USER_MGMT.ROLES.PANEL.NO_RECORD </td>
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+
+  </div>
+</div>

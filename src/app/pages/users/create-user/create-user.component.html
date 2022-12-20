@@ -1,0 +1,346 @@
+<div class="card mb-5 mb-xl-10">
+  <div class="card-header border-0 cursor-pointer justify-content-censter" role="button" data-bs-toggle="collapse"
+    data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0 text-center"> {{'USER_MGMT.ROLES.PANEL.USER_DETAILS' | translate }}</h3>
+    </div>
+  </div>
+  <div id="kt_account_profile_details" class="collapse show">
+    <form novalidate="" class="form" [formGroup]="userFormGroup">
+
+      <div class="card-body border-top p-9">
+
+        <div class="row mb-6">
+
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-lg-9 fv-row" style="
+    margin-top: auto;
+">
+
+                <div class="col-lg-8">
+                  <div class="row">
+
+                    <div class="col-lg-12 fv-row">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 fv-row">
+
+                <div class="col-lg-8">
+                  <div class="image-input image-input-outline" data-kt-image-input="true"
+                    [style.background-image]="'url(./assets/media/avatars/blank.png'">
+                    <div class="image-input-wrapper w-125px h-125px">
+                      <img [src]="photoImageSrc  " alt="s" class="image-input-wrapper w-125px h-125px">
+                      <label class=" btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                        data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+
+                        <i class="bi bi-pencil-square text-muted" aria-hidden="true"></i>
+                        <app-file-upload formControlName="photoFile" style="    display: none;"></app-file-upload>
+
+                      </label></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label required fw-bold fs-6"
+            translate="USER_MGMT.ROLES.PANEL.USER_NAME"></label>
+          <div class="col-lg-8">
+            <div class="row">
+
+              <div class="col-lg-12 fv-row">
+                <input class="form-control form-control-lg form-control-solid" type="text"
+                  [readonly]="userFormGroup.value.userId" name="userName" formControlName="userName"
+                  placeholder="{{'USER_MGMT.ROLES.PANEL.USER_NAME' | translate }}" autocomplete="off" [ngClass]="{
+              'is-invalid': userFormGroup.controls['userName'].invalid,
+              '': userFormGroup.controls['userName'].valid
+            }" />
+
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'USER_MGMT.ROLES.PANEL.USER_NAME_REQUIRED',
+              control: userFormGroup.controls['userName']
+            }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'minlength',
+              message: 'Username should have at least 3 symbols',
+              control: userFormGroup.controls['userName']
+            }"></ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label
+            class="col-lg-4 col-form-label required fw-bold fs-6">{{'USER_MGMT.ROLES.PANEL.FULL_NAME' | translate }}</label>
+          <div class="col-lg-8">
+            <div class="row">
+
+              <div class="col-lg-12 fv-row">
+                <input class="form-control form-control-lg form-control-solid" type="text" name="fullName"
+                  formControlName="fullName" placeholder="{{'USER_MGMT.ROLES.PANEL.FULL_NAME' | translate }}"
+                  autocomplete="off" [ngClass]="{
+              'is-invalid': userFormGroup.controls['fullName'].invalid,
+              '': userFormGroup.controls['fullName'].valid
+            }" />
+
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'required',
+              message:  'USER_MGMT.ROLES.PANEL.FULL_NAME_REQUIRED',
+              control: userFormGroup.controls['fullName']
+            }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+              validation: 'minlength',
+              message:  'USER_MGMT.ROLES.PANEL.USER_NAME_SYMBOL',
+              control: userFormGroup.controls['fullName']
+            }"></ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label
+            class="col-lg-4 col-form-label required fw-bold fs-6">{{'USER_MGMT.ROLES.PANEL.EMAIL' | translate }}</label>
+          <div class="col-lg-8 fv-row">
+            <input class="form-control form-control-lg form-control-solid" type="email"
+              placeholder="{{'USER_MGMT.ROLES.PANEL.EMAIL' | translate }}" name="email" formControlName="email"
+              autocomplete="off" [ngClass]="{
+        'is-invalid': userFormGroup.controls['email'].invalid,
+        '': userFormGroup.controls['email'].valid
+      }" />
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'USER_MGMT.ROLES.PANEL.EMAIL_REQUIRED',
+        control: userFormGroup.controls['email']
+      }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'email',
+        message: 'USER_MGMT.ROLES.PANEL.EMAIL_INVALID',
+        control: userFormGroup.controls['email']
+      }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'minlength',
+        message: 'USER_MGMT.ROLES.PANEL.EMAIL_LENGTH',
+        control: userFormGroup.controls['email']
+      }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'maxLength',
+        message: 'Email should have maximum 360 symbols',
+        control: userFormGroup.controls['email']
+      }"></ng-container>
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"><span
+              class="">{{'USER_MGMT.ROLES.PANEL.JOB_TITLE' | translate }}</span></label>
+          <div class="col-lg-8 fv-row">
+            <input class="form-control form-control-lg form-control-solid" type="text"
+              placeholder="{{'USER_MGMT.ROLES.PANEL.JOB_TITLE' | translate }}" name="jobTitle"
+              formControlName="jobTitle" autocomplete="off" [ngClass]="{
+        'is-invalid': userFormGroup.controls['jobTitle'].invalid,
+        '': userFormGroup.controls['jobTitle'].valid
+      }" />
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"><span
+              class="required">{{'USER_MGMT.ROLES.PANEL.ORGANIZATION' | translate }}</span></label>
+          <div class="col-lg-8 fv-row">
+            <input class="form-control form-control-lg form-control-solid" type="text"
+              placeholder="{{'USER_MGMT.ROLES.PANEL.ORGANIZATION' | translate }}" name="organization" autocomplete="off"
+              formControlName="organization" [ngClass]="{
+        'is-invalid': userFormGroup.controls['organization'].invalid,
+        '': userFormGroup.controls['organization'].valid
+      }" />
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'Organization is required',
+        control: userFormGroup.controls['organization']
+      }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'minlength',
+        message: 'USER_MGMT.ROLES.PANEL.ORGANIZATION_LENGTH',
+        control: userFormGroup.controls['organization']
+      }"></ng-container>
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"><span
+              class="">{{'USER_MGMT.ROLES.PANEL.SPECIALIZATION' | translate }}</span></label>
+          <div class="col-lg-8 fv-row">
+            <input class="form-control form-control-lg form-control-solid" type="text"
+              placeholder="{{'USER_MGMT.ROLES.PANEL.SPECIALIZATION' | translate }}" name="specialization"
+              formControlName="jobTitle" autocomplete="off" [ngClass]="{
+        'is-invalid': userFormGroup.controls['specialization'].invalid,
+        '': userFormGroup.controls['specialization'].valid
+      }" />
+          </div>
+        </div>
+
+        <div class="row mb-6" *ngIf="user?.userId">
+          <label
+            class="col-lg-4 col-form-label required fw-bold fs-6">{{'USER_MGMT.ROLES.PANEL.PASSWORD' | translate }}</label>
+          <div class="col-lg-8 fv-row">
+            <button type="button" class="btn btn-light btn-sm ms-2 col-lg-2" (click)="resetPassowrd()">Reset
+
+            </button></div>
+        </div>
+        <div class="row mb-6" *ngIf="!user?.userId">
+          <div class="col-6">
+            <label class="form-label fw-bolder text-dark fs-6">{{'USER_MGMT.ROLES.PANEL.PASSWORD' | translate }}</label>
+            <div class="input-group">
+              <input class="form-control form-control-lg form-control-solid" [type]="hide ? 'password' : 'text'"
+                placeholder="{{'USER_MGMT.ROLES.PANEL.PASSWORD' | translate }}" name="password"
+                formControlName="password" autocomplete="off" />
+
+              <i (click)="passwordToggle()" *ngIf="hide" class="password_viewer bi bi-eye-slash-fill mx-3"></i>
+              <i (click)="passwordToggle()" *ngIf="!hide" class="password_viewer bi bi-eye mx-3"></i>
+              <!-- <mat-icon class="is-invalid" (click)="passwordToggle()"> -->
+              <!-- </mat-icon> -->
+            </div>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'USER_MGMT.ROLES.PANEL.PASSWORD_REQUIRED',
+        control: userFormGroup.controls['password']
+      }"></ng-container>
+
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'maxLength',
+        message: 'Password should have maximum 100 symbols',
+        control: userFormGroup.controls['password']
+      }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'pattern',
+        message: 'USER_MGMT.ROLES.PANEL.PASSWORD_COMPLEXITY',
+        control: userFormGroup.controls['password']
+      }"></ng-container>
+          </div>
+          <div class="col-6">
+            <label
+              class="form-label fw-bolder text-dark fs-6">{{'USER_MGMT.ROLES.PANEL.CONFIRM_PASSWORD' | translate }}</label>
+            <input class="form-control form-control-lg form-control-solid" type="password"
+              placeholder="{{'USER_MGMT.ROLES.PANEL.CONFIRM_PASSWORD' | translate }}" name="cPassword"
+              autocomplete="off" formControlName="cPassword" [ngClass]="{
+        'is-invalid': userFormGroup.controls['cPassword'].invalid,
+        '': userFormGroup.controls['cPassword'].valid
+      }" />
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'USER_MGMT.ROLES.PANEL.CPASSWORD_REQUIRED',
+        control: userFormGroup.controls['cPassword']
+      }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'minlength',
+        message: 'Confirm Password should have at least 8 symbols',
+        control: userFormGroup.controls['cPassword']
+      }"></ng-container>
+            <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+        validation: 'maxLength',
+        message: 'Confirm Password should have maximum 100 symbols',
+        control: userFormGroup.controls['cPassword']
+      }"></ng-container>
+            <ng-container *ngIf="
+        userFormGroup.controls['cPassword'].errors &&
+        userFormGroup.controls['cPassword'].errors.ConfirmPassword
+      ">
+              <div class="fv-plugins-message-container">
+                <div class="fv-help-block">
+                  {{'USER_MGMT.ROLES.PANEL.CONFIRM_PASSWORD' | translate }}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <mat-divider class="py-2"> </mat-divider>
+
+        <div class="row ">
+          <label class="col-lg-4  fw-bolder fs-6 ">{{'USER_MGMT.ROLES.PANEL.USER_ROLES' | translate }}</label>
+          <div class="col-lg-8 fv-row">
+            <button class="btn btn-sm btn-light-primary ms-2" (click)="assignRole()">
+              <span class="svg-icon svg-icon-3"></span>
+              {{'USER_MGMT.ROLES.PANEL.ADD_ROLE' | translate }}
+            </button>
+          </div>
+        </div>
+
+        <div class="row fv-row">
+          <div class="d-flex justify-content-center">
+            <div class="col-lg-4 fv-row">
+              <div class="card-body d-flex flex-column" formArrayName="roles">
+                <!--begin::Item-->
+                <div class="d-flex align-items-center position-relative "
+                  *ngFor="let t of rolesFormArray.controls; let i = index;let last = last">
+                  <!--begin::Label-->
+                  <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-3px"></div>
+                  <!--end::Label-->
+                  <!--begin::Details-->
+                  <div class="fw-bold ms-5" [formGroupName]="i">
+                    <!-- <div class="fs-5 fw-bolder text-dark text-hover-primary">{{t.get('roleId').value}}</div> -->
+                    <app-select type="role" class="col-lg-6" [formControlName]="'roleId'">
+
+                    </app-select>
+                    <button href=" #" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm mx-2"
+                      (click)="deleteRole(i)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                  <!--end::Details-->
+                  <!--begin::Menu-->
+                </div>
+                <!--end::Item-->
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <ng-container>
+          <span clas="indicator-progress" [style.display]="'block'">
+            {{'USER_MGMT.ROLES.PANEL.WAIT' | translate }}
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </ng-container>
+        <button type="button" class="btn btn-sm me-3 btn-primary" (click)="saveUser()">
+          <ng-container>{{'USER_MGMT.ROLES.PANEL.SAVE' | translate }}</ng-container>
+        </button>
+
+        <button class="btn btn-danger btn-sm cursor-pointer me-3" (click)="deleteUser()">
+          {{'USER_MGMT.ROLES.PANEL.DELETE_USER' | translate }}
+        </button>
+        <button class="btn btn-google btn-sm cursor-pointer me-3" (click)="changeUserStatus()"
+          *ngIf="!userFormGroup.value.isDisabled">
+          {{'USER_MGMT.ROLES.PANEL.DISABLE_USER' | translate }}
+        </button>
+        <button class="btn btn-success  btn-sm cursor-pointer me-3" (click)="changeUserStatus()"
+          *ngIf="userFormGroup.value.isDisabled">
+          {{'USER_MGMT.ROLES.PANEL.ENABLE_USER' | translate }}
+        </button>
+
+        <button class="btn btn-secondary btn-sm ms-2 me-3" (click)="new()">
+          {{'USER_MGMT.ROLES.PANEL.NEW_USER' | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+  <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        <span role="alert">
+          {{ message  | translate }}
+        </span>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

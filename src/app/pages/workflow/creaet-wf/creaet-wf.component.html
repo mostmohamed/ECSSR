@@ -1,0 +1,161 @@
+<div class="card mb-5 mb-xl-10">
+  <div class="card-header border-0 cursor-pointer justify-content-cen2ter" role="button" data-bs-toggle="collapse"
+    data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0"> {{ 'WORKFLOW.CREATE_WF.ROOT' | translate }}</h3>
+    </div>
+  </div>
+  <div id="kt_account_profile_details" class="collapse show">
+    <form novalidate="" class="form" [formGroup]="workflowFormGroup">
+
+      <div class="card-body border-top p-9">
+
+        <div class="row mb-6">
+
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-lg-9 fv-row" style="
+      margin-top: auto;
+  ">
+
+                <div class="col-lg-8">
+                  <div class="row">
+
+                    <div class="col-lg-12 fv-row">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label required fw-bold fs-6" translate>WORKFLOW.CREATE_WF.WF_NAME</label>
+          <div class="col-lg-8">
+            <div class="row">
+
+              <div class="col-lg-12 fv-row">
+                <input class="form-control form-control-lg form-control-solid" type="text" name="wfName"
+                  formControlName="wfName" placeholder="{{'WORKFLOW.CREATE_WF.WF_NAME' | translate }}"
+                  autocomplete="off" [ngClass]="{
+                'is-invalid': workflowFormGroup.controls['wfName'].invalid,
+                '': workflowFormGroup.controls['wfName'].valid
+              }" />
+
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'WORKFLOW.CREATE_WF.WF_REQUIRED',
+                control: workflowFormGroup.controls['wfName']
+              }"></ng-container>
+                <ng-container [ngTemplateOutlet]="formError" [ngTemplateOutletContext]="{
+                validation: 'minlength',
+                message: ' WORKFLOW.CREATE_WF.WF_LENGTH',
+                control: workflowFormGroup.controls['wfName']
+              }"></ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fv-row mb-10">
+          <label class="form-label fw-bolder text-dark fs-6" translate>USER_MGMT.ROLES.PANEL.STATUS</label>
+
+          <mat-slide-toggle formControlName="isDisabled" class="ms-3">
+            <!-- <mat-label *ngIf="!workflowFormGroup.controls['isDisabled'].value">Enabled</mat-label>
+            <mat-label *ngIf="workflowFormGroup.controls['isDisabled'].value">Disabled</mat-label> -->
+
+          </mat-slide-toggle>
+        </div>
+        <mat-divider class="py-2"> </mat-divider>
+
+        <div class="row ">
+          <label class="col-lg-4  fw-bolder fs-6 " translate>WORKFLOW.CREATE_WF.WF_LEVEL</label>
+          <div class="col-lg-8 fv-row">
+            <button class="btn btn-sm btn-light-primary ms-2" (click)="assignLevel()">
+              <span class="svg-icon svg-icon-3"></span>
+              {{'WORKFLOW.CREATE_WF.ADD_LEVEL'|translate}}
+            </button>
+          </div>
+        </div>
+
+        <div class="row fv-row">
+          <div class="d-flex justify-content-center">
+            <div class="col-lg-4 fv-row">
+              <div class="card-body d-flex flex-column" formArrayName="levels">
+                <!--begin::Item-->
+                <div class="d-flex align-items-center position-relative "
+                  *ngFor="let t of levelsFormArray.controls; let i = index;let last = last">
+                  <!--begin::Label-->
+                  <div class="position-absolute top-0 start-0 rounded h-100 bg-secondary w-3px"></div>
+                  <!--end::Label-->
+                  <!--begin::Details-->
+                  <div class="fw-bold ms-5" [formGroupName]="i">
+                    <!-- <div class="fs-5 fw-bolder text-dark text-hover-primary">{{t.get('roleId').value}}</div> -->
+                    <label class="px-2" for="roleId"> {{ 'WORKFLOW.CREATE_WF.LEVEL' | translate }} {{i+1}} </label>
+                    <app-select type="role" class="col-lg-6" [formControlName]="'roleId'">
+
+                    </app-select>
+
+                    <label class="px-3" for="canPubllish" translate>
+                      WORKFLOW.CREATE_WF.CAN_PUBLISH
+                      <input type="checkbox" name="canPubllish" [formControlName]="'canPublish'">
+                    </label>
+
+
+                    <button href=" #" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
+                      (click)="deleteLevel(i)">
+                      <span class="svg-icon svg-icon-3"></span>
+                    </button>
+                  </div>
+                  <!--end::Details-->
+                  <!--begin::Menu-->
+                </div>
+                <!--end::Item-->
+
+              </div>
+            </div>
+            <div class="col-lg-2 fv-row">
+              <div>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer d-flex justify-content-end py-6 px-9">
+        <ng-container>
+          <span clas="indicator-progress" [style.display]="'block'" translate>
+            USER_MGMT.ROLES.PANEL.WAIT
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </ng-container>
+        <button type="button" class="btn btn-sm me-3 btn-primary" (click)="saveWorkflow()" translate>
+          USER_MGMT.ROLES.PANEL.SAVE
+        </button>
+
+        <button class="btn btn-danger btn-sm cursor-pointer me-3" (click)="deleteWorkflow()" translate>
+          WORKFLOW.CREATE_WF.DELETE_WF
+        </button>
+
+        <button class="btn btn-secondary btn-sm ms-2 me-3" (click)="new()" translate>
+          WORKFLOW.CREATE_WF.NEW_WF
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #formError let-control="control" let-message="message" let-validation="validation">
+  <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        <span role="alert" translate>
+          {{ message }}
+        </span>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

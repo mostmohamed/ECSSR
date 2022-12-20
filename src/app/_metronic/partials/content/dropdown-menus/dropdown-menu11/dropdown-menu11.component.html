@@ -1,0 +1,59 @@
+<div class="px-7 py-5">
+  <div class="fs-5 text-dark fw-bolder" translate="GENERAL.FILTER_OPTION"></div>
+</div>
+
+<div class="separator border-gray-200"></div>
+
+<div class="px-7 py-5">
+  <div class="mb-10">
+    <label class="form-label fw-bold" translate>GENERAL.STATUS</label>
+
+    <div>
+      <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option"
+        data-allow-clear="true">
+        <option></option>
+        <option selected value="1" translate>GENERAL.APPROVED</option>
+
+        <option value="3">In Process</option>
+        <option value="4" translate>GENERAL.REJECTED</option>
+      </select>
+    </div>
+  </div>
+  <div class="mb-10">
+    <label class="form-label fw-bold" translate>{{'GENERAL.LANGUAGE_NAME'|translate}}:</label>
+
+    <div>
+      <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option"
+        data-allow-clear="true">
+        <option></option>
+        <option selected value="1">اللغة العربيه</option>
+        <option value="2">اللغة الانجليزية</option>
+
+      </select>
+    </div>
+  </div>
+  <div class="mb-10">
+    <label class="form-label fw-bold">{{'LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME'|translate}} :</label>
+
+    <div>
+      <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option"
+        data-allow-clear="true">
+        <option></option>
+        <option selected value="1">الإمارات</option>
+        <option value="2">السعودية</option>
+
+      </select>
+    </div>
+  </div>
+
+
+  <div class="d-flex justify-content-end">
+    <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">
+      {{'GENERAL.RESET'|translate}}
+    </button>
+
+    <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">
+      {{'GENERAL.APPLY'|translate}}
+    </button>
+  </div>
+</div>

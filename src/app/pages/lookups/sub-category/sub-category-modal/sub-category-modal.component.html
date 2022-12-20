@@ -1,0 +1,30 @@
+<h1 mat-dialog-title class="text-center mb-5">
+  {{data?.id===null?('LOOKUPS.SUB_CATEGORY.EDIT_SUB_CATEGORY' | translate):'LOOKUPS.SUB_CATEGORY.NEW_SUB_CATEGORY' |translate}}
+</h1>
+<div mat-dialog-content>
+  <div class="row">
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label translate="LOOKUPS.SUB_CATEGORY.SUB_CATEGORY_NAME"> </mat-label>
+        <input matInput [(ngModel)]="data.name">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-select translate="LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME"> </mat-select>
+
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label translate="GENERAL.NOTES"> </mat-label>
+        <input matInput [(ngModel)]="data.name">
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" translate="GENERAL.CANCEL"></button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.name" cdkFocusInitial translate="GENERAL.SAVE">
+  </button>
+</div>
