@@ -24,7 +24,8 @@ export const locale = {
             Deriving: 'الأستنباط',
             STATUS: 'الحـالة',
             APPLY: 'تطبيق',
-            RESET: 'اعادة تعيين'
+            RESET: 'اعادة تعيين',
+            TOPICS : 'اختيار الموضوعات'
         },
         LOOKUPS: {
 

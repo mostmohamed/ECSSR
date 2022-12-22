@@ -16,25 +16,102 @@
     </div>
   </div>
   <div class="card-body py-3">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <div class="row ">
+          <label class="form-label">{{'LOOKUPS.LANGUAGE.ROOT'|translate}}</label>
+          <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
+            <mat-label>{{'LOOKUPS.LANGUAGE.LANGUAGE_NAME'|translate}}</mat-label>
+            <mat-chip-list #chipList2 aria-label="Fruit selection">
+              <mat-chip *ngFor="let cat of category" (removed)="removec(cat)">
+                {{cat}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input
+                placeholder="{{'GENERAL.SELECT'|translate}} {{'LOOKUPS.LANGUAGE.ROOT'|translate}}..."
+                #catInput [formControl]="categoryCtrl" [matAutocomplete]="auto4" [matChipInputFor]="chipList2"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addc($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto4="matAutocomplete" (optionSelected)="selectedC($event)">
+              <mat-option *ngFor="let cat of filteredCategory | async" [value]="cat">
+                {{cat}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
 
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="row ">
+          <label class="form-label">{{'GENERAL.TOPICS'|translate}}</label>
+          <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
+            <mat-label>{{'GENERAL.TOPICS'|translate}}</mat-label>
+            <mat-chip-list #chipList2 aria-label="Fruit selection">
+              <mat-chip *ngFor="let cat of category" (removed)="removec(cat)">
+                {{cat}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input
+                placeholder=" {{'GENERAL.TOPICS'|translate}}..."
+                #catInput [formControl]="categoryCtrl" [matAutocomplete]="auto4" [matChipInputFor]="chipList2"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addc($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto4="matAutocomplete" (optionSelected)="selectedC($event)">
+              <mat-option *ngFor="let cat of filteredCategory | async" [value]="cat">
+                {{cat}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-md-3"></div>
+      <div class="col-md-3">    <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary  me-5">
+        <span class="indicator-label">المكتوبة</span>
+        <span class="indicator-progress">Please wait...
+          <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+      </button>
+    </div>
+      <div class="col-md-3">
+        <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-success  me-5">
+          <span class="indicator-label">الرسوم البيانية</span>
+          <span class="indicator-progress">Please wait...
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+        </button>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
     <div class="table-responsive">
       <div class="table-responsive rounded border border-1">
         <table class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3 pb-0 mb-0 table-row-gray-300">
           <thead class="fw-bolder text-muted bg-light">
             <tr class="fw-bolder text-muted">
 
-              <th class="col-4 min-w-150px text-center">
+              <th class="col-3 min-w-150px text-center">
                 <div>{{'REPORTS.MAIN_CATEGORY'|translate}}</div>
                 <div>
                   (الكلمة المفتاحية الرئيسية)
                 </div>
               </th>
-              <th class="col-5 min-w-200px text-center">
+              <th class="col-3 min-w-200px text-center">
                 <div>{{'REPORTS.SUB_CATEGORY'|translate}}</div>
                 <div>الكلمة المفتاحية الفرعية)</div>
               </th>
+              <th class="col-3 w-120px text-center">الوزن النسبي للكلمات والجمل الدالة
+                (الكلمة المفتاحية الفرعية)
+                
+              </th>
               <th class="col-3 w-120px text-center">(الكلمة المفتاحية الرئيسية)
               </th>
+              
 
 
             </tr>
@@ -44,7 +121,7 @@
               <td class=" text-center"><a class="text-dark fw-bolder text-hover-primary fs-6">
                   الإمارات</a></td>
 
-              <td style="padding: 0;">
+              <td style="padding: 0;" colspan="2">
                 <table style="width: 100%;" class="text-center">
                   <tr>
                     <td class="fw-bolder">
@@ -52,6 +129,7 @@
                         دبي</div>
                       <label>(3)</label>
                     </td>
+                    <td>(3+6+3 /3)</td>
                     <td>
                       <mat-slider value="2" max="5">
                         <input matSliderThumb>
@@ -66,6 +144,7 @@
                       <label>(6)</label>
 
                     </td>
+                    <td>(3+6+3 /6)</td>
                     <td>
                       <mat-slider value="5" max="5">
                         <input matSliderThumb>
@@ -80,6 +159,7 @@
                       <label>(6)</label>
 
                     </td>
+                    <td>(3+6+3 /6)</td>
                     <td>
                       <mat-slider value="5" max="5">
                         <input matSliderThumb>
@@ -88,12 +168,13 @@
                   </tr>
                 </table>
               </td>
-              <td style="padding: 0;">
+              
+              <td style="padding: 0;" colspan="2">
                 <table style="width: 100%;" class="text-center">
                   <tr>
 
                     <td class="fw-bolder">6</td>
-
+                    <td>(عدد مرات التكرار /6)</td>
                     <td>
                       <mat-slider value="5" max="5">
                         <input matSliderThumb>
@@ -102,6 +183,8 @@
                   </tr>
                   <tr>
                     <td class="fw-bolder">3</td>
+                    <td>(عدد مرات التكرار /6)</td>
+
                     <td>
                       <mat-slider max="5" min="2" step="1" value="3">
                         <input matSliderThumb>
@@ -110,6 +193,8 @@
                   </tr>
                   <tr>
                     <td class="fw-bolder">5</td>
+                    <td>(عدد مرات التكرار /6)</td>
+
                     <td>
                       <mat-slider max="5" min="2" step="1" value="5">
                         <input matSliderThumb>
@@ -118,12 +203,13 @@
                   </tr>
                 </table>
               </td>
+             
             </tr>
             <tr class="bg-light-warning">
               <td class="bg-light-warning text-center"><a class="text-dark fw-bolder text-hover-primary fs-6">
                   السعودية</a></td>
 
-              <td style="padding: 0;">
+              <td style="padding: 0;" colspan="2">
                 <table style="width: 100%;" class="text-center">
                   <tr>
                     <td class="fw-bolder">
@@ -131,6 +217,7 @@
                         السعودي</div>
                       <label>(78)</label>
                     </td>
+                    <td>(3+6+3 /6)</td>
                     <td>
                       <mat-slider value="2" max="5">
                         <input matSliderThumb>
@@ -144,6 +231,7 @@
                       <label>(5)</label>
 
                     </td>
+                    <td>(3+6+3 /6)</td>
                     <td>
                       <mat-slider value="5" max="5">
                         <input matSliderThumb>
@@ -157,6 +245,7 @@
                       <label>(0)</label>
 
                     </td>
+                    <td>(3+6+3 /6)</td>
                     <td>
                       <mat-slider value="5" max="5">
                         <input matSliderThumb>
@@ -165,11 +254,12 @@
                   </tr>
                 </table>
               </td>
-              <td style="padding: 0;">
+              <td style="padding: 0;" colspan="2">
                 <table style="width: 100%;" class="text-center">
                   <tr>
 
                     <td class="fw-bolder">6</td>
+                    <td>(عدد مرات التكرار /6)</td>
 
                     <td>
                       <mat-slider value="5" max="5">
@@ -179,6 +269,8 @@
                   </tr>
                   <tr>
                     <td class="fw-bolder">3</td>
+                    <td>(عدد مرات التكرار /6)</td>
+
                     <td>
                       <mat-slider max="5" min="2" step="1" value="3">
                         <input matSliderThumb>
@@ -187,6 +279,8 @@
                   </tr>
                   <tr>
                     <td class="fw-bolder">3</td>
+                    <td>(عدد مرات التكرار /6)</td>
+
                     <td>
                       <mat-slider max="5" min="2" step="1" value="3">
                         <input matSliderThumb>
