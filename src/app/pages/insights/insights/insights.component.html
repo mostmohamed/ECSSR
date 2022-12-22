@@ -23,7 +23,7 @@
     <div class="row g-5 g-xl-8">
       <div class="row">
         <div class="col-6 ">
-          <label class="form-label">{{'LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME'|translate}}</label>
+          <label class="form-label">{{'LOOKUPS.MAIN_KEYWORDS.ROOT'|translate}}</label>
           <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
             <mat-label>{{'LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME'|translate}}</mat-label>
             <mat-chip-list #chipList2 aria-label="">
@@ -34,7 +34,7 @@
                 </button>
               </mat-chip>
               <input
-                placeholder="{{'GENERAL.SELECT'|translate}} {{'LOOKUPS.MAIN_CATEGORY.MAIN_CATEGORY_NAME'|translate}}..."
+                placeholder="{{'GENERAL.SELECT'|translate}} {{'LOOKUPS.MAIN_KEYWORDS.ROOT'|translate}}..."
                 #catInput [formControl]="mainCategoryCtrl" [matAutocomplete]="auto4" [matChipInputFor]="chipList2"
                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addc($event)">
             </mat-chip-list>
@@ -47,7 +47,7 @@
 
         </div>
         <div class="col-6">
-          <label class="form-label">{{'LOOKUPS.SUB_CATEGORY.SUB_CATEGORY_NAME'|translate}}</label>
+          <label class="form-label">{{'LOOKUPS.SUB_KEYWORDS.ROOT'|translate}}</label>
 
           <mat-form-field class="example-chip-list" appearance="fill" style="width: 100%">
             <mat-label>{{'LOOKUPS.SUB_CATEGORY.SUB_CATEGORY_NAME'|translate}}</mat-label>
